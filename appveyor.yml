@@ -1,0 +1,29 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+
+configuration:
+- Debug
+- Release
+
+platform: Any CPU
+
+environment:
+  EnableNuGetPackageRestore: true
+
+before_build:
+- nuget restore
+
+build:
+  verbosity: normal
+  project: src\b2xtranslator.sln
+
+after_build:
+- ps: $env:PRODUCT_VERSION=(Get-Command "$env:APPVEYOR_BUILD_FOLDER\src\Common\CommonTranslatorLib\bin\$env:CONFIGURATION\DIaLOGIKa.b2xtranslator.CommonTranslatorLib.dll").FileVersionInfo.ProductVersion
+
+artifacts:
+- path: src\Shell\doc2x\bin\$(configuration)
+  name: doc2x_$(PRODUCT_VERSION)-$(configuration)
+- path: src\Shell\ppt2x\bin\$(configuration)
+  name: ppt2x_$(PRODUCT_VERSION)-$(configuration)
+- path: src\Shell\xls2x\bin\$(configuration)
+  name: xls2x_$(PRODUCT_VERSION)-$(configuration)
