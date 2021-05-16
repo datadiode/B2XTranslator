@@ -1,0 +1,161 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7055581-7C0C-429F-8134-99D3413C5756}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CleverAge.OdfConverter.Spreadsheet</RootNamespace>
+    <AssemblyName>SpreadsheetConverter</AssemblyName>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converter.cs" />
+    <Compile Include="XlsxDocument.cs" />
+    <Compile Include="OoxCommentsPostProcessor.cs" />
+    <Compile Include="OoxDrawingsPostProcessor.cs" />
+    <Compile Include="OOXGroupsPostProcessor.cs" />
+    <Compile Include="OoxPivotCrashHandlingPostProcessor.cs" />
+    <Compile Include="OOXStyleCellPostProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="resources\odf2oox\border.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\contentTypes.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\date.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\number.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\odf2oox-compute-size.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\odf2oox.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\package_relationships.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\page.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\part_relationships.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\pixel-measure.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\sharedStrings.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\source.xml" />
+    <EmbeddedResource Include="resources\odf2oox\workbook.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\worksheets.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\cell.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\validation.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\merge_cell.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\common.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\styles.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\ole_objects.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\change_tracking.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\comments.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\connections.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\drawing.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\chart.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\conditional.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\sortFilter.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\data_consolidation.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\scenario.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\pivotTable.xsl" />
+    <EmbeddedResource Include="resources\odf2oox\gradient.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\oox2odf-compute-size.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\oox2odf.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\relationships.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\source.xml" />
+    <EmbeddedResource Include="resources\oox2odf\common.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\merge_cell.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\number.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\settings.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\styles.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\table_body.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\border.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\headers.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\picture.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\insert_cols.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\note.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\groups.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\date_time.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\connections.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\validation.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\conditional.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\elements.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\ole_objects.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\chart.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\insert_text.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\scenario.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\change_tracking.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\database-ranges.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\pivot_tables.xsl" />
+    <EmbeddedResource Include="resources\oox2odf\Gradient.xsl" />
+    <Compile Include="OdfSharedStringsPostProcessor.cs" />
+    <Compile Include="OdfConditionalPostProcessor.cs" />
+    <Compile Include="OoxHeaderFooterPostProcessor.cs" />
+    <Compile Include="OoxMaximumCellTextPostProcessor.cs" />
+    <Compile Include="OoxPhysicalPathPostProcessor.cs" />
+    <Compile Include="OoxPivotCachePostProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\OdfConverterLib\OdfConverterLib.csproj">
+      <Project>{8CB777EB-36ED-45D8-84FF-BDD64AD5026E}</Project>
+      <Name>OdfConverterLib</Name>
+    </ProjectReference>
+    <Content Include="Converter.csproj" />
+    <EmbeddedResource Include="resources\oox2odf\content.xsl" />
+    <ProjectReference Include="..\..\Common\ZipUtils\ZipUtils.csproj">
+      <Project>{05a5c68e-b901-4ad0-87f1-5e43ddc759ce}</Project>
+      <Name>ZipUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist "C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" (
+if not "$(ConfigurationName)" == "Debug" (
+echo Pre-compiling XSLT
+copy "$(ProjectDir)..\..\Common\OdfConverterLib\resources\odf2oox\*.xsl" "$(ProjectDir)resources\odf2oox\"
+
+copy "$(ProjectDir)..\..\Common\OdfConverterLib\resources\oox2odf\*.xsl" "$(ProjectDir)resources\oox2odf\"
+
+"C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" /settings:document+,dtd-,script- /nologo /platform:x86 /class:$(TargetName)2Odf /out:"$(ProjectDir)bin\$(TargetName)2Odf.dll" "$(ProjectDir)resources\oox2odf\oox2odf.xsl"
+"C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" /settings:document+,dtd-,script- /nologo /platform:x86 /class:$(TargetName)2Oox /out:"$(ProjectDir)bin\$(TargetName)2Oox.dll" "$(ProjectDir)resources\odf2oox\odf2oox.xsl"
+) else (
+echo Skipping pre-compilation of XSLT
+)
+)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets" Condition="Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets'))" />
+  </Target>
+</Project>

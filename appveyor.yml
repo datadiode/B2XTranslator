@@ -27,3 +27,5 @@ artifacts:
   name: ppt2x_$(PRODUCT_VERSION)-$(configuration)
 - path: src\Shell\xls2x\bin\$(configuration)
   name: xls2x_$(PRODUCT_VERSION)-$(configuration)
+- path: src\Shell\OdfConverter\bin\$(configuration)
+  name: OdfConverter_$(PRODUCT_VERSION)-$(configuration)

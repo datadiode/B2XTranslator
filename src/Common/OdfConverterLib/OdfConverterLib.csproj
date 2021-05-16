@@ -1,0 +1,109 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CleverAge.OdfConverter.OdfConverterLib</RootNamespace>
+    <AssemblyName>OdfConverterLib</AssemblyName>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CB777EB-36ED-45D8-84FF-BDD64AD5026E}</ProjectGuid>
+    <SignAssembly>false</SignAssembly>
+    <StartAction>Program</StartAction>
+    <StartProgram>..\OdfConverterTest\bin\Debug\OdfConverter.exe</StartProgram>
+    <StartArguments>/I C:\Tom\Work\work\testing\spistresci.docx /O C:\Tom\Work\work\testing\spistresci.odt /V /LEVEL 1 /XSLT C:\Tom\Work\work\odfconverter\source\OdfConverterLib\resources\source\OdfConverterLib\resources\oox2odf</StartArguments>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <Optimize>False</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <Optimize>True</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractConverter.cs" />
+    <Compile Include="AbstractPostProcessor.cs" />
+    <Compile Include="ConversionOptions.cs" />
+    <Compile Include="ConversionReport.cs" />
+    <Compile Include="CSharpEval.cs" />
+    <Compile Include="EmbeddedResourceResolver.cs" />
+    <Compile Include="EncryptedDocumentException.cs" />
+    <Compile Include="Matrix.cs" />
+    <Compile Include="NotAnOoxDocumentException.cs" />
+    <Compile Include="OdfCharactersPostProcessor.cs" />
+    <Compile Include="OdfEventArgs.cs" />
+    <Compile Include="OoxCharactersPostProcessor.cs" />
+    <Compile Include="OoxShape.cs" />
+    <Compile Include="OoxTransform.cs" />
+    <Compile Include="OoxDocument.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NotAnOdfDocumentException.cs" />
+    <Compile Include="OoxSpacesPostProcessor.cs" />
+    <Compile Include="SharedXmlUrlResolver.cs" />
+    <Compile Include="UriLoader.cs" />
+    <Compile Include="ZipResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\source.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\odf2oox\measures.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\oox2odf\measures.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\odf2oox\common-meta.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\oox2odf\common-meta.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\odf2oox\dummy.dtd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\oox2odf\utils.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\odf2oox\utils.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZipUtils\ZipUtils.csproj">
+      <Project>{05a5c68e-b901-4ad0-87f1-5e43ddc759ce}</Project>
+      <Name>ZipUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <Import Project="..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets" Condition="Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets'))" />
+  </Target>
+</Project>
