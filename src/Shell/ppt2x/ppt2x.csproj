@@ -81,8 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ppt2x.ico" />
-    <Content Include="preBuild.vbs" />
-    <EmbeddedResource Include="revision.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\CommonTranslatorLib\CommonTranslatorLib.csproj">

@@ -48,9 +48,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="README.TXT">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="resources\ooxschemas\dml-picture.xsx">
       <DependentUpon>dml-picture.xsd</DependentUpon>
     </None>
@@ -359,9 +356,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
-    <Content Include="LICENSE.TXT">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <PropertyGroup>

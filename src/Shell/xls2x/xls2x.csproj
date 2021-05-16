@@ -113,10 +113,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="preBuild.vbs" />
-    <EmbeddedResource Include="revision.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\key.snk" />
     <None Include="app.config" />
     <None Include="packages.config" />
