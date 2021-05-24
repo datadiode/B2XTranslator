@@ -51,7 +51,6 @@ namespace DIaLOGIKa.b2xtranslator.ppt2x
     public class Program : CommandLineTranslator
     {
         public static string ToolName = "ppt2x";
-        public static string RevisionResource = "DIaLOGIKa.b2xtranslator.ppt2x.revision.txt";
         public static string ContextMenuInputExtension = ".ppt";
         public static string ContextMenuText = "Convert to .pptx";
 
@@ -63,7 +62,7 @@ namespace DIaLOGIKa.b2xtranslator.ppt2x
 
             InitializeLogger();
 
-            PrintWelcome(ToolName, RevisionResource);
+            PrintWelcome(ToolName);
 
             if (CreateContextMenuEntry)
             {

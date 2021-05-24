@@ -42,7 +42,6 @@ namespace DIaLOGIKa.b2xtranslator.xls2x
     class Program : CommandLineTranslator
     {
         public static string ToolName = "xls2x";
-        public static string RevisionResource = "DIaLOGIKa.b2xtranslator.xls2x.revision.txt";
         public static string ContextMenuInputExtension = ".xls";
         public static string ContextMenuText = "Convert to .xlsx";
 
@@ -52,7 +51,7 @@ namespace DIaLOGIKa.b2xtranslator.xls2x
 
             InitializeLogger();
 
-            PrintWelcome(ToolName, RevisionResource);
+            PrintWelcome(ToolName);
 
             if (CreateContextMenuEntry)
             {

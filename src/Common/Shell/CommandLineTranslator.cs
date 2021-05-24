@@ -53,7 +53,7 @@ namespace DIaLOGIKa.b2xtranslator.Shell
         /// <summary>
         /// Prints the heading row of the tool
         /// </summary>
-        public static void PrintWelcome(string toolname, string revisionResource)
+        public static void PrintWelcome(string toolname)
         {
             bool backup = TraceLogger.EnableTimeStamp;
             TraceLogger.EnableTimeStamp = false;
@@ -61,7 +61,7 @@ namespace DIaLOGIKa.b2xtranslator.Shell
             welcome.Append("Welcome to ");
             welcome.Append(toolname);
             welcome.Append(" (r");
-            welcome.Append(getRevision(revisionResource));
+            welcome.Append(Assembly.GetExecutingAssembly().GetName().Version.Build);
             welcome.Append(")\n");
             welcome.Append("Copyright (c) 2009, DIaLOGIKa. All rights reserved.");
             welcome.Append("\n");
@@ -86,28 +86,6 @@ namespace DIaLOGIKa.b2xtranslator.Shell
             usage.AppendLine("-c             create an entry in context menu");
             usage.AppendLine("-?             print this help");
             Console.WriteLine(usage.ToString());
-        }
-
-        /// <summary>
-        /// Returns the revision that is stored in the embedded resource "revision.txt".
-        /// Returns -1 if something goes wrong
-        /// </summary>
-        /// <returns></returns>
-        private static int getRevision(string revisionResource)
-        {
-            int rev = -1;
-
-            try
-            {
-                Assembly a = Assembly.GetEntryAssembly();
-                Stream s = a.GetManifestResourceStream(revisionResource);
-                StreamReader reader = new StreamReader(s);
-                rev = Int32.Parse(reader.ReadLine());
-                s.Close();
-            }
-            catch (Exception) { }
-
-            return rev;
         }
 
         public static RegistryKey GetContextMenuKey(string triggerExtension, string contextMenuText)
