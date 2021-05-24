@@ -102,6 +102,10 @@ namespace DIaLOGIKa.b2xtranslator.SpreadsheetMLMapping
         {
             // find series data
             SeriesDataSequence seriesDataSequence = this.ChartContext.ChartSheetContentSequence.SeriesDataSequence;
+
+            if (seriesDataSequence == null)
+                return;
+
             foreach (SeriesGroup seriesGroup in seriesDataSequence.SeriesGroups)
             {
                 if (seriesGroup.SIIndex.numIndex == SIIndex.SeriesDataType.SeriesValues)

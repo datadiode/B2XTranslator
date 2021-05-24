@@ -44,7 +44,10 @@ namespace DIaLOGIKa.b2xtranslator.Spreadsheet.XlsFileFormat
             this.Begin = (Begin)BiffRecord.ReadRecord(reader);
             
             //Pos 
-            this.Pos = (Pos)BiffRecord.ReadRecord(reader);
+            if (BiffRecord.GetNextRecordType(reader) == RecordType.Pos)
+            {
+                this.Pos = (Pos)BiffRecord.ReadRecord(reader);
+            }
 
             //[FontX] 
             if (BiffRecord.GetNextRecordType(reader) == RecordType.FontX)
@@ -59,7 +62,10 @@ namespace DIaLOGIKa.b2xtranslator.Spreadsheet.XlsFileFormat
             }   
             
             //AI 
-            this.AiSequence = new AiSequence(reader);
+            if (BiffRecord.GetNextRecordType(reader) == RecordType.BRAI)
+            {
+                this.AiSequence = new AiSequence(reader);
+            }
             
             //[FRAME] 
             if (BiffRecord.GetNextRecordType(reader) == RecordType.Frame)

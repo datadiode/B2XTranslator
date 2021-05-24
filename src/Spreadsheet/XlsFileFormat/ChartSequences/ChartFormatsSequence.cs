@@ -69,10 +69,16 @@ namespace DIaLOGIKa.b2xtranslator.Spreadsheet.XlsFileFormat
             }
 
             // Scl
-            this.Scl = (Scl)BiffRecord.ReadRecord(reader);
+            if (BiffRecord.GetNextRecordType(reader) == RecordType.Scl)
+            {
+                this.Scl = (Scl)BiffRecord.ReadRecord(reader);
+            }
 
             // PlotGrowth
-            this.PlotGrowth = (PlotGrowth)BiffRecord.ReadRecord(reader);
+            if (BiffRecord.GetNextRecordType(reader) == RecordType.PlotGrowth)
+            {
+                this.PlotGrowth = (PlotGrowth)BiffRecord.ReadRecord(reader);
+            }
 
             // [FRAME]
             if (BiffRecord.GetNextRecordType(reader) == RecordType.Frame)

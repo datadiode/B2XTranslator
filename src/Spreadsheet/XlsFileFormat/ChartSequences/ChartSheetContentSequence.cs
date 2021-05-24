@@ -177,7 +177,10 @@ namespace DIaLOGIKa.b2xtranslator.Spreadsheet.XlsFileFormat
             this.ChartFormatsSequence = new ChartFormatsSequence(reader);
             
             // SERIESDATA 
-            this.SeriesDataSequence = new SeriesDataSequence(reader);
+            if (BiffRecord.GetNextRecordType(reader) == RecordType.Dimensions)
+            {
+                this.SeriesDataSequence = new SeriesDataSequence(reader);
+            }
             
             // *WINDOW 
             this.WindowSequences = new List<WindowSequence>();

@@ -60,7 +60,10 @@ namespace DIaLOGIKa.b2xtranslator.Spreadsheet.XlsFileFormat
             }
 
             // CrtLink 
-            this.CrtLink = (CrtLink)BiffRecord.ReadRecord(reader);
+            if (BiffRecord.GetNextRecordType(reader) == RecordType.CrtLink)
+            {
+                this.CrtLink = (CrtLink)BiffRecord.ReadRecord(reader);
+            }
 
             // [SeriesList] 
             if (BiffRecord.GetNextRecordType(reader) == RecordType.SeriesList)
