@@ -18,14 +18,14 @@ build:
   project: src\b2xtranslator.sln
 
 after_build:
-- ps: $env:PRODUCT_VERSION=(Get-Command "$env:APPVEYOR_BUILD_FOLDER\src\Common\CommonTranslatorLib\bin\$env:CONFIGURATION\DIaLOGIKa.b2xtranslator.CommonTranslatorLib.dll").FileVersionInfo.ProductVersion
+- ps: $env:PRODUCT_VERSION=(Get-Command "$env:APPVEYOR_BUILD_FOLDER\src\Common\CommonTranslatorLib\bin\$env:CONFIGURATION\net40\DIaLOGIKa.b2xtranslator.CommonTranslatorLib.dll").FileVersionInfo.ProductVersion
 
 artifacts:
-- path: src\Shell\doc2x\bin\$(configuration)
+- path: src\Shell\doc2x\bin\$(configuration)\net40
   name: doc2x_$(PRODUCT_VERSION)-$(configuration)
-- path: src\Shell\ppt2x\bin\$(configuration)
+- path: src\Shell\ppt2x\bin\$(configuration)\net40
   name: ppt2x_$(PRODUCT_VERSION)-$(configuration)
-- path: src\Shell\xls2x\bin\$(configuration)
+- path: src\Shell\xls2x\bin\$(configuration)\net40
   name: xls2x_$(PRODUCT_VERSION)-$(configuration)
-- path: src\Shell\OdfConverter\bin\$(configuration)
+- path: src\Shell\OdfConverter\bin\$(configuration)\net40
   name: OdfConverter_$(PRODUCT_VERSION)-$(configuration)
