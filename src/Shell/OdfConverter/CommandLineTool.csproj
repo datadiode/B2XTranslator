@@ -1,21 +1,18 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net40</TargetFramework>
     <OutputType>Exe</OutputType>
     <RootNamespace>OdfConverter.CommandLineTool</RootNamespace>
     <AssemblyName>OdfConverter</AssemblyName>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{289C4B72-B929-4E3D-808F-F622E275AC70}</ProjectGuid>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <AssemblyTitle>OpenXML/ODF Translator Command Line Tool ($(Configuration))</AssemblyTitle>
+    <Company>OpenXML/ODF Translator Team</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Version>1.0.0@(VersionSuffix)</Version>
+    <Product>OpenXML/ODF Translator Command Line Tool</Product>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -330,26 +327,11 @@
     <EmbeddedResource Include="resources\odfschemas\OpenDocumentSchema10.rng" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\OdfConverterLib\OdfConverterLib.csproj">
-      <Project>{8CB777EB-36ED-45D8-84FF-BDD64AD5026E}</Project>
-      <Name>OdfConverterLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\ZipUtils\ZipUtils.csproj">
-      <Project>{05a5c68e-b901-4ad0-87f1-5e43ddc759ce}</Project>
-      <Name>ZipUtils</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Presentation\Converter\Converter.csproj">
-      <Project>{D6E88E6E-B1B4-46B0-BC93-DDD4785865DF}</Project>
-      <Name>Converter %28Presentation\Converter%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Spreadsheet\Converter\Converter.csproj">
-      <Project>{E7055581-7C0C-429F-8134-99D3413C5756}</Project>
-      <Name>Converter %28Spreadsheet\Converter%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\WordProcessing\Converter\Converter.csproj">
-      <Project>{F9071930-348E-4A30-A0F6-A1A3DF3A587B}</Project>
-      <Name>Converter %28Word\Converter%29</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OdfConverterLib\OdfConverterLib.csproj" />
+    <ProjectReference Include="..\..\Common\ZipUtils\ZipUtils.csproj" />
+    <ProjectReference Include="..\..\Presentation\Converter\Converter.csproj" />
+    <ProjectReference Include="..\..\Spreadsheet\Converter\Converter.csproj" />
+    <ProjectReference Include="..\..\WordProcessing\Converter\Converter.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\..\lib\zlibwapi.dll">
@@ -357,15 +339,8 @@
     </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(SolutionDir)..\LICENSE"</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets" Condition="Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets'))" />
-  </Target>
+  <Import Project="$(SolutionDir)Common.targets" />
 </Project>

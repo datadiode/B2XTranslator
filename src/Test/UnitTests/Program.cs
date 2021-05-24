@@ -13,8 +13,8 @@ namespace UnitTests
             //test.TestProperties();
             //test.TearDown();
 
-            DocObjectModelTests test2 = new DocObjectModelTests();
-            test2.TestParseability();
+            //DocObjectModelTests test2 = new DocObjectModelTests();
+            //test2.TestParseability();
         }
     }
 }

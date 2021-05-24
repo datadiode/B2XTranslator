@@ -1,25 +1,19 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F9071930-348E-4A30-A0F6-A1A3DF3A587B}</ProjectGuid>
+    <TargetFramework>net40</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OdfConverter.Wordprocessing</RootNamespace>
     <AssemblyName>WordprocessingConverter</AssemblyName>
-    <ReferencePath>C:\Documents and Settings\yves\Mes documents\Shared0129\source\TextProcessing</ReferencePath>
+    <AssemblyTitle>OdfWordprocessingConverterLib ($(Configuration))</AssemblyTitle>
+    <Company>OpenXML-ODF Translator Team</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Version>1.0.0@(VersionSuffix)</Version>
+    <Product>OdfWordprocessingConverterLib</Product>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,14 +56,8 @@
     <EmbeddedResource Include="resources\odf2oox\office.dtd" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\OdfConverterLib\OdfConverterLib.csproj">
-      <Project>{8CB777EB-36ED-45D8-84FF-BDD64AD5026E}</Project>
-      <Name>OdfConverterLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\ZipUtils\ZipUtils.csproj">
-      <Project>{05a5c68e-b901-4ad0-87f1-5e43ddc759ce}</Project>
-      <Name>ZipUtils</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OdfConverterLib\OdfConverterLib.csproj" />
+    <ProjectReference Include="..\..\Common\ZipUtils\ZipUtils.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="resources\oox2odf\oox2odf-compute-size.xsl" />
@@ -143,10 +131,6 @@
   <ItemGroup>
     <EmbeddedResource Include="resources\odf2oox\2oox-scripts.xsl" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if exist "C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" (
 if not "$(ConfigurationName)" == "Debug" (
@@ -172,11 +156,5 @@ echo Skipping pre-compilation of XSLT
 )
 )</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets" Condition="Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets'))" />
-  </Target>
+  <Import Project="$(SolutionDir)Common.targets" />
 </Project>

@@ -1,24 +1,18 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net40</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>CleverAge.OdfConverter.OdfConverterLib</RootNamespace>
     <AssemblyName>OdfConverterLib</AssemblyName>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8CB777EB-36ED-45D8-84FF-BDD64AD5026E}</ProjectGuid>
-    <SignAssembly>false</SignAssembly>
-    <StartAction>Program</StartAction>
-    <StartProgram>..\OdfConverterTest\bin\Debug\OdfConverter.exe</StartProgram>
-    <StartArguments>/I C:\Tom\Work\work\testing\spistresci.docx /O C:\Tom\Work\work\testing\spistresci.odt /V /LEVEL 1 /XSLT C:\Tom\Work\work\odfconverter\source\OdfConverterLib\resources\source\OdfConverterLib\resources\oox2odf</StartArguments>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <AssemblyTitle>OdfConverterLib ($(Configuration))</AssemblyTitle>
+    <Company>OpenXML/ODF Translator Team</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Version>1.0.0@(VersionSuffix)</Version>
+    <Product>CleverAge.OdfConverter.OdfConverterLib.Properties</Product>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -90,20 +84,7 @@
     <EmbeddedResource Include="resources\odf2oox\utils.xsl" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ZipUtils\ZipUtils.csproj">
-      <Project>{05a5c68e-b901-4ad0-87f1-5e43ddc759ce}</Project>
-      <Name>ZipUtils</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\ZipUtils\ZipUtils.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
-  <Import Project="..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets" Condition="Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Zoltu.Versioning.1.2.34.0\build\Zoltu.Versioning.targets'))" />
-  </Target>
+  <Import Project="$(SolutionDir)Common.targets" />
 </Project>
