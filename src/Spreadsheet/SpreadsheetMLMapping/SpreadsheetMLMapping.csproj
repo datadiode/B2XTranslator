@@ -94,7 +94,6 @@
     <ProjectReference Include="..\..\Common\Tools\Tools.csproj" />
     <ProjectReference Include="..\..\Common\ZipUtils\ZipUtils.csproj" />
     <ProjectReference Include="..\XlsFileFormat\XlsFileFormat.csproj" />
-    <ProjectReference Include="..\..\Test\CompoundFileExtractTest\CompoundFileExtractTest.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\key.snk" />
