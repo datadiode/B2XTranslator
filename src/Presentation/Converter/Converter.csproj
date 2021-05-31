@@ -132,18 +132,13 @@
     <EmbeddedResource Include="resources\oox2odf\notesOox2Odf.xsl" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>if exist "C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" (
-if not "$(ConfigurationName)" == "Debug" (
+    <PostBuildEvent>set xsltc.exe=$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\xsltc.exe
+if exist "%xsltc.exe%" (
 echo Pre-compiling XSLT
-copy "$(ProjectDir)..\..\Common\OdfConverterLib\resources\odf2oox\*.xsl" "$(ProjectDir)resources\odf2oox\"
-
-copy "$(ProjectDir)..\..\Common\OdfConverterLib\resources\oox2odf\*.xsl" "$(ProjectDir)resources\oox2odf\"
-
-"C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" /settings:document+,dtd-,script- /nologo /platform:x86 /class:$(TargetName)2Odf /out:"$(ProjectDir)bin\$(TargetName)2Odf.dll" "$(ProjectDir)resources\oox2odf\oox2odf.xsl"
-"C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\xsltc.exe" /settings:document+,dtd-,script- /nologo /platform:x86 /class:$(TargetName)2Oox /out:"$(ProjectDir)bin\$(TargetName)2Oox.dll" "$(ProjectDir)resources\odf2oox\odf2oox.xsl"
-) else (
-echo Skipping pre-compilation of XSLT
-)
+copy "$(MSBuildProjectDirectory)\..\..\Common\OdfConverterLib\resources\odf2oox\*.xsl" "$(MSBuildProjectDirectory)\resources\odf2oox\"
+copy "$(MSBuildProjectDirectory)\..\..\Common\OdfConverterLib\resources\oox2odf\*.xsl" "$(MSBuildProjectDirectory)\resources\oox2odf\"
+"%xsltc.exe%" /settings:document+,dtd-,script- /nologo /class:$(AssemblyName)2Odf /out:"$(SolutionDir)..\lib\$(AssemblyName)2Odf.dll" "$(MSBuildProjectDirectory)\resources\oox2odf\oox2odf.xsl"
+"%xsltc.exe%" /settings:document+,dtd-,script- /nologo /class:$(AssemblyName)2Oox /out:"$(SolutionDir)..\lib\$(AssemblyName)2Oox.dll" "$(MSBuildProjectDirectory)\resources\odf2oox\odf2oox.xsl"
 )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)Common.targets" />

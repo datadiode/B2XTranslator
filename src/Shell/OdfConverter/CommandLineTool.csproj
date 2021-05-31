@@ -340,7 +340,8 @@
     <Content Include="Icon.ico" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)..\LICENSE"</PostBuildEvent>
+    <PostBuildEvent>copy "$(SolutionDir)..\LICENSE"
+copy "$(SolutionDir)..\lib\*Converter2*.dll</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)Common.targets" />
 </Project>
