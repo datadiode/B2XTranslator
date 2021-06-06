@@ -53,6 +53,7 @@ using System.IO;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Collections;
+using System.Reflection;
 
 namespace DIaLOGIKa.b2xtranslator.ZipUtils
 {
@@ -70,6 +71,17 @@ namespace DIaLOGIKa.b2xtranslator.ZipUtils
 #else
 	const string zlibwapi = "zlibwapi.dll";
 #endif
+        static ZipLib()
+        {
+            var zlibwapi3264 = Path.Combine(
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                Environment.Is64BitProcess ? "x64" : "x86", zlibwapi);
+
+            LoadLibrary(zlibwapi3264);
+        }
+
+        [DllImport("kernel32")]
+        static extern IntPtr LoadLibrary(string lpFileName);
 
         // prevent instances of this class from being constructed
         private ZipLib() { }
@@ -212,9 +224,9 @@ namespace DIaLOGIKa.b2xtranslator.ZipUtils
         /// </returns>
         [DllImport(zlibwapi, ExactSpelling = true, CharSet = CharSet.Ansi)]
         public static extern int unzGetCurrentFileInfo(IntPtr handle, out ZipEntryInfo entryInfoPtr,
-            sbyte[] entryNameBuffer, UIntPtr entryNameBufferLength,
-            byte[] extraField, UIntPtr extraFieldLength,
-            sbyte[] commentBuffer, UIntPtr commentBufferLength);
+            sbyte[] entryNameBuffer, UInt32 entryNameBufferLength,
+            byte[] extraField, UInt32 extraFieldLength,
+            sbyte[] commentBuffer, UInt32 commentBufferLength);
 
         /// <summary>Open the zip file entry for reading.</summary>
         /// <param name="handle">The zip file handle opened by <see cref="unzOpenCurrentFile"/>.</param>
@@ -422,46 +434,46 @@ namespace DIaLOGIKa.b2xtranslator.ZipUtils
     internal struct ZipEntryInfo
     {
         // <summary>Version made by (2 bytes).</summary>
-        public UIntPtr Version;
+        public UInt32 Version;
 
         /// <summary>Version needed to extract (2 bytes).</summary>
-        public UIntPtr VersionNeeded;
+        public UInt32 VersionNeeded;
 
         /// <summary>General purpose bit flag (2 bytes).</summary>
-        public UIntPtr Flag;
+        public UInt32 Flag;
 
         /// <summary>Compression method (2 bytes).</summary>
-        public UIntPtr CompressionMethod;
+        public UInt32 CompressionMethod;
 
         /// <summary>Last mod file date in Dos fmt (4 bytes).</summary>
-        public UIntPtr DosDate;
+        public UInt32 DosDate;
 
         /// <summary>Crc-32 (4 bytes).</summary>
-        public UIntPtr Crc;
+        public UInt32 Crc;
 
         /// <summary>Compressed size (4 bytes).</summary>
-        public UIntPtr CompressedSize;
+        public UInt32 CompressedSize;
 
         /// <summary>Uncompressed size (4 bytes).</summary>
-        public UIntPtr UncompressedSize;
+        public UInt32 UncompressedSize;
 
         /// <summary>Filename length (2 bytes).</summary>
-        public UIntPtr FileNameLength;
+        public UInt32 FileNameLength;
 
         /// <summary>Extra field length (2 bytes).</summary>
-        public UIntPtr ExtraFieldLength;
+        public UInt32 ExtraFieldLength;
 
         /// <summary>File comment length (2 bytes).</summary>
-        public UIntPtr CommentLength;
+        public UInt32 CommentLength;
 
         /// <summary>Disk number start (2 bytes).</summary>
-        public UIntPtr DiskStartNumber;
+        public UInt32 DiskStartNumber;
 
         /// <summary>Internal file attributes (2 bytes).</summary>
-        public UIntPtr InternalFileAttributes;
+        public UInt32 InternalFileAttributes;
 
         /// <summary>External file attributes (4 bytes).</summary>
-        public UIntPtr ExternalFileAttributes;
+        public UInt32 ExternalFileAttributes;
 
         /// <summary>File modification date of entry.</summary>
         public ZipDateTimeInfo DateTime;

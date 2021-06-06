@@ -89,7 +89,7 @@ namespace DIaLOGIKa.b2xtranslator.ZipUtils
             }
 
             ZipEntryInfo entryInfo = new ZipEntryInfo();
-            int result = ZipLib.unzGetCurrentFileInfo(this.handle, out entryInfo, null, UIntPtr.Zero, null, UIntPtr.Zero, null, UIntPtr.Zero);
+            int result = ZipLib.unzGetCurrentFileInfo(this.handle, out entryInfo, null, 0, null, 0, null, 0);
             if (result != 0)
             {
                 throw new ZipException("Error while reading entry info: " + relativePath + " - Errorcode: " + result);
@@ -101,7 +101,7 @@ namespace DIaLOGIKa.b2xtranslator.ZipUtils
                 throw new ZipException("Error while opening entry: " + relativePath + " - Errorcode: " + result);
             }
 
-            byte[] buffer = new byte[entryInfo.UncompressedSize.ToUInt64 ()];
+            byte[] buffer = new byte[entryInfo.UncompressedSize];
             int bytesRead = 0;
             if ((bytesRead = ZipLib.unzReadCurrentFile(this.handle, buffer, (uint)entryInfo.UncompressedSize)) < 0)
             {
