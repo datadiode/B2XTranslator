@@ -1,0 +1,3 @@
+The copies of zlibwapi.dll contained in subfolders x86 and x64 were obtained
+from https://www.topwizprogramming.com/freecode_zlibwapi.html, and match the
+source code snapshot at https://github.com/madler/zlib/releases/tag/v1.2.11.

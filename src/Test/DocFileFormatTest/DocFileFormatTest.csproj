@@ -6,9 +6,6 @@
     <AssemblyName>Test</AssemblyName>
     <AssemblyTitle>DocFileFormatTest ($(Configuration))</AssemblyTitle>
     <Company>DIaLOGIKa</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <VersionPrefix>1.0.0</VersionPrefix>
     <Version>1.0.0@(VersionSuffix)</Version>
     <Product>DocFileFormatTest</Product>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -18,22 +15,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,4 +48,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(SolutionDir)Common.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)..\LICENSE"
+xcopy /iy "$(SolutionDir)..\lib\x64" x64
+xcopy /iy "$(SolutionDir)..\lib\x86" x86</PostBuildEvent>
+  </PropertyGroup>
 </Project>

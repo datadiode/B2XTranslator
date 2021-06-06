@@ -10,5 +10,5 @@
     <ReadLinesFromFile File="$(ProjectName).version_suffix">
       <Output TaskParameter="Lines" ItemName="VersionSuffix" />
     </ReadLinesFromFile>
-  </Target> 
+  </Target>
 </Project>

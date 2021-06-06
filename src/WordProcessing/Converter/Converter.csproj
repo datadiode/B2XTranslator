@@ -6,9 +6,6 @@
     <AssemblyName>WordprocessingConverter</AssemblyName>
     <AssemblyTitle>OdfWordprocessingConverterLib ($(Configuration))</AssemblyTitle>
     <Company>OpenXML-ODF Translator Team</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <VersionPrefix>1.0.0</VersionPrefix>
     <Version>1.0.0@(VersionSuffix)</Version>
     <Product>OdfWordprocessingConverterLib</Product>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -19,7 +16,6 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +23,6 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

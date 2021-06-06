@@ -6,16 +6,12 @@
     <AssemblyName>OdfConverterLib</AssemblyName>
     <AssemblyTitle>OdfConverterLib ($(Configuration))</AssemblyTitle>
     <Company>OpenXML/ODF Translator Team</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <VersionPrefix>1.0.0</VersionPrefix>
     <Version>1.0.0@(VersionSuffix)</Version>
     <Product>CleverAge.OdfConverter.OdfConverterLib.Properties</Product>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>bin\Debug\</OutputPath>
     <Optimize>False</Optimize>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugSymbols>True</DebugSymbols>
@@ -23,7 +19,6 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <OutputPath>bin\Release\</OutputPath>
     <Optimize>True</Optimize>
     <DefineConstants>TRACE</DefineConstants>
     <DebugSymbols>False</DebugSymbols>
